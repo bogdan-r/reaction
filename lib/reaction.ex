@@ -14,10 +14,10 @@ defmodule Reaction do
 
   defp caclulate_reaction_weight(_, {element_pairs, element_numbers}, rules) do
     reversed_pairs = Enum.reverse(element_pairs)
-    {generated_pairs, updates_element_numbers} =
+    {generated_pairs, updated_element_numbers} =
       Enum.reduce(reversed_pairs, {[], element_numbers}, &(generate_new_chain(&1, &2, rules)))
 
-    {Enum.reverse(generated_pairs), updates_element_numbers}
+    {Enum.reverse(generated_pairs), updated_element_numbers}
   end
 
   defp generate_new_chain(pair, {pairs, element_numbers}, rules) do
