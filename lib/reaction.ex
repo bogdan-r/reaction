@@ -6,13 +6,13 @@ defmodule Reaction do
     initial_element_numbers = initialize_element_numbers(formula)
     initial_acc = {initial_element_pairs, initial_element_numbers}
 
-    {_, element_numbers} = Enum.reduce(1..n, initial_acc, &(caclulate_reaction_power(&1, &2, rules)))
+    {_, element_numbers} = Enum.reduce(1..n, initial_acc, &(caclulate_reaction_weight(&1, &2, rules)))
     {min, max} = get_min_max(element_numbers)
 
     max - min
   end
 
-  defp caclulate_reaction_power(_, {element_pairs, element_numbers}, rules) do
+  defp caclulate_reaction_weight(_, {element_pairs, element_numbers}, rules) do
     reversed_pairs = Enum.reverse(element_pairs)
     {generated_pairs, updates_element_numbers} =
       Enum.reduce(reversed_pairs, {[], element_numbers}, &(generate_new_chain(&1, &2, rules)))
