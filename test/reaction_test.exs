@@ -1,7 +1,5 @@
 defmodule ReactionTest do
   use ExUnit.Case
-  doctest Reaction
-
 
   @formula "NNCS"
 
