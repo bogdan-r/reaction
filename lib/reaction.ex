@@ -29,9 +29,7 @@ defmodule Reaction do
     {add_to_pairs(pairs, new_pairs), updated_element_numbers}
   end
 
-  defp add_to_pairs(pairs, []) do
-    pairs
-  end
+  defp add_to_pairs(pairs, []), do: pairs
 
   defp add_to_pairs(pairs, new_pairs) do
     [pair | rest] = new_pairs
